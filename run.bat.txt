@@ -1,0 +1,84 @@
+ Volume in drive C is Windows 
+ Volume Serial Number is 607D-315E
+
+ Directory of C:\test
+
+09/22/2022  12:41 PM    <DIR>          .
+09/22/2022  12:41 PM    <DIR>          ..
+09/22/2022  12:41 PM                 0 run.txt
+               1 File(s)              0 bytes
+               2 Dir(s)  165,757,763,584 bytes free
+
+md test
+
+cd test
+
+test>dir >run.txt
+
+test>cd..
+
+
+md test123
+
+cd test123
+
+test123>md aaa
+
+test123>md bbb
+
+test123>md ccc
+
+test123>cd bbb
+
+test123\bbb>md ddd
+
+test123\bbb>cd..
+
+test123>cd ccc
+
+test123\ccc> dir >list.txt
+
+test123\ccc>dir c:\windows >list.txt
+
+test123\ccc>cd..
+
+test123>cd..
+
+cd test123
+
+
+test123>del /s list.txt
+Deleted file - C:\test123\ccc\list.txt
+
+
+test123>cd..
+
+rmdir /s test123
+test123, Are you sure (Y/N)? y
+rmdir /s test123
+test123, Are you sure (Y/N)? y
+The system cannot find the file specified.
+
+cd test
+run.txt rename run.bat
+
+C:\test>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
