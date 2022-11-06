@@ -61,7 +61,7 @@ int main() {
 
 	}
 
-	int bag2();
+	
 
 	return ;//add return
  }
@@ -107,16 +107,18 @@ int main_3()
      
 	   return;
 	}
-
+	int num = 0;
 	 
 	printf("the content of myFile.txt :\n");
 	while ((readChar = fgetc(f)) != EOF) {
-		printf("%c", readChar);
+		printf("%c -", readChar);
 		for (int i = 0; i < strlen(smallAlpha); ++i) {
 			if (readChar == smallAlpha[i] || readChar == bigAlpha[i]) {
-
+				num++;
+				lettersCountArr[i] = num;
+			
+				printf("%d\n", lettersCountArr[i]);
 				lettersCountArr[i]++;
-
 			}
 
 		}
