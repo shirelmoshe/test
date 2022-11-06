@@ -1,0 +1,156 @@
+#include<stdio.h>
+#include<string.h> 
+#pragma warning(disable:4996)
+
+
+
+int main_2()
+{
+	int x, y;
+	int nums[6];
+	int* arrPtr;
+
+	// Section A - Print the variables
+	scanf("%d", &x);//Receives values ​​from the user
+	scanf("%d", &y);//Receives values ​​from the user
+	printf(" Base = %d\n", x);
+	printf(" Height = %d\n", y);
+	printf(" Area = %d\n", x * y);
+	// Section B - Print the static array "nums".
+	
+	int i = 0;
+	while (i < 6) {
+		nums[i] = i;
+		printf(" nums[%d] = %d\n", i, nums[i]);//Receives values ​​from the user
+		i++;//increasing i by one
+	}
+
+	// Section C - Print allocated array.
+
+	arrPtr = malloc(sizeof(int) * 6);//Change to 6
+	if (!arrPtr) {
+		printf("Error Allocating Memory!\n");
+		exit(1);
+	}
+	else {
+		
+		for (int a = 0; a < 6; a++) {
+			arrPtr = a;
+			printf(" array[%d] = %d\n", a, arrPtr);
+			arrPtr++;
+		}
+	}
+	return 0;
+}
+
+ 
+ 
+ 
+ 
+int main() {
+
+	int a = 4, b = 7;//instead of ; replace with
+
+	float c;
+
+	scanf("%f", &c);//Adding & to variable C
+
+	if (c == 5)//Change between five and C
+	{//Add curly brackets
+		printf("%f", c);//change to printf
+
+	}
+
+	int bag2();
+
+	return ;//add return
+ }
+
+
+
+
+
+typedef struct letter {
+	char small;
+	char big;
+	int counter;
+	struct letter* next;
+	struct letter* prev;
+}letter;
+
+letter* HEAD;
+letter* TAIL;
+
+
+void freeList(letter* head) {
+	letter* releaseItem;
+	letter* runItem = head;
+	while (runItem != NULL) {
+		releaseItem = runItem;
+		runItem = runItem->next;
+		free(releaseItem);
+	}
+}
+
+
+
+int main_3()
+{
+	
+	char* smallAlpha = "abcdefghijklmnopqrstuvwxyz";
+	char* bigAlpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	int lettersCountArr[27] = {0};
+	char readChar, ch;
+	FILE* f;
+	f = fopen("myFile.txt", "r");
+	if (!f) {
+     
+	   return;
+	}
+
+	 
+	printf("the content of myFile.txt :\n");
+	while ((readChar = fgetc(f)) != EOF) {
+		printf("%c", readChar);
+		for (int i = 0; i < strlen(smallAlpha); ++i) {
+			if (readChar == smallAlpha[i] || readChar == bigAlpha[i]) {
+
+				lettersCountArr[i]++;
+
+			}
+
+		}
+	}
+	fclose(f);
+
+	 
+	HEAD = NULL;
+	TAIL = NULL;
+	for (int j = 0; j < strlen(smallAlpha); ++j) {
+		letter* letterItem = (letter*)malloc(sizeof(letter));
+		if (!letterItem) {
+			puts("Error Allocating Memory!");
+			exit(1);
+		}
+		letterItem->small = smallAlpha [j];
+		letterItem->big = bigAlpha[j];
+		letterItem->counter = lettersCountArr[j];
+		
+		
+		if (HEAD == NULL) {
+			HEAD = letterItem;
+			TAIL = letterItem;
+			letterItem->prev = NULL;
+			letterItem->next = NULL;
+		}
+		else
+		{
+			TAIL->next = letterItem;
+			letterItem->prev = TAIL;
+			TAIL = letterItem;
+			TAIL->next = NULL;
+		}
+	
+	}
+	return 0;
+}
